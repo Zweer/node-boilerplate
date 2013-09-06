@@ -6,39 +6,24 @@ var express = require('express')
 var viewDirectory = path.join(__dirname, '..', config.app.directories.views)
   , staticDirectory = path.join(__dirname, '..', config.app.directories.public);
 
-var Application = function () {
-  this.setupVariables();
-  this.setupViews();
-  this.setupMiddlewares();
-};
+app.set('port', config.app.port);
 
-Application.prototype.setupVariables = function () {
-  app.set('port', config.app.port);
-};
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', viewDirectory);
 
-Application.prototype.setupViews = function () {
-  app.engine('html', swig.renderFile);
+if (isDevelopment) {
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+} else {
+  app.use(express.compress());
+}
 
-  app.set('view engine', 'html');
-  app.set('views', viewDirectory);
-};
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(express.query());
+app.use(express.cookieParser(config.app.cookieSecret));
+app.use(express.session());
+app.use(express.csrf());
+app.use(app.router);
 
-Application.prototype.setupMiddlewares = function () {
-  if (isDevelopment) {
-    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-  } else {
-    app.use(express.compress());
-  }
-
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.query());
-  app.use(express.cookieParser(config.app.cookieSecret));
-  app.use(express.session());
-  app.use(express.csrf());
-  app.use(app.router);
-
-  app.use(express.static(staticDirectory));
-};
-
-module.exports = Application;
+app.use(express.static(staticDirectory));

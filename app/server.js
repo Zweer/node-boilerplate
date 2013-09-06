@@ -9,3 +9,5 @@ logger = new (winston.Logger)()
   });
 
 isDevelopment = app.get('env') === 'development';
+
+require('./lib/app.js');
