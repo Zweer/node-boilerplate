@@ -1,0 +1,11 @@
+{
+  "app": {
+    "port": 3000,
+    "cookieSecret": "put your cookie secret here!",
+
+    "directories": {
+      "public": "public",
+      "views": "views"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name"   : "Your new application name",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "config": "*",
+    "swig": "*"
+  }
+}
