@@ -23,7 +23,8 @@
   "devDependencies": {
     "express": "*",
     "config": "*",
-    "swig": "*"
+    "swig": "*",
+    "winston": "*"
   },
   "license": "MIT",
   "engines": {

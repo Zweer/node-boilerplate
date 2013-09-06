@@ -4,6 +4,7 @@
   "dependencies": {
     "express": "*",
     "config": "*",
-    "swig": "*"
+    "swig": "*",
+    "winston": "*"
   }
 }
