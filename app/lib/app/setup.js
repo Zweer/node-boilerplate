@@ -4,14 +4,15 @@ module.exports = function setup () {
     , path    = require('path')
     , swig    = require('swig');
 
-  var viewDirectory = path.join(__dirname, '..', config.app.directories.views)
-    , staticDirectory = path.join(__dirname, '..', config.app.directories.public);
+  var assetsDirectory = path.join(__dirname, '..', '..', config.app.directories.assets)
+    , publicDirectory = path.join(__dirname, '..', '..', config.app.directories.public)
+    , viewsDirectory  = path.join(__dirname, '..', '..', config.app.directories.views);
 
   app.set('port', config.app.port);
 
   app.engine('html', swig.renderFile);
   app.set('view engine', 'html');
-  app.set('views', viewDirectory);
+  app.set('views', viewsDirectory);
 
   if (isDevelopment) {
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
@@ -25,7 +26,22 @@ module.exports = function setup () {
   app.use(express.cookieParser(config.app.cookieSecret));
   app.use(express.session());
   app.use(express.csrf());
+
+  app.use(require('less-middleware')({
+    src: path.join(assetsDirectory, 'less'),
+    dest: path.join(publicDirectory, 'css'),
+    prefix: '/css',
+    compress: !isDevelopment,
+    force: isDevelopment,
+    once: !isDevelopment,
+    debug: isDevelopment
+  }));
+
+  /**
+   * TODO: make a better uglifyjs middleware!!!!
+   */
+
   app.use(app.router);
 
-  app.use(express.static(staticDirectory));
+  app.use(express.static(publicDirectory));
 };

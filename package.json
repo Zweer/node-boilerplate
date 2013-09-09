@@ -24,7 +24,8 @@
     "express": "*",
     "config": "*",
     "swig": "*",
-    "winston": "*"
+    "winston": "*",
+    "less-middleware": "*"
   },
   "license": "MIT",
   "engines": {

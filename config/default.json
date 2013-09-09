@@ -1,12 +1,13 @@
 {
   "app": {
-    "port": 3000,
+    "clustered":    true,
     "cookieSecret": "put your cookie secret here!",
-    "clustered": true,
+    "port":         3000,
 
     "directories": {
+      "assets": "assets",
       "public": "public",
-      "views": "views"
+      "views":  "views"
     }
   }
 }
