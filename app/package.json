@@ -6,6 +6,7 @@
     "config": "*",
     "swig": "*",
     "winston": "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "zwe-uglifyjs-middleware": "*"
   }
 }
