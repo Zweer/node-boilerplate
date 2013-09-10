@@ -37,9 +37,13 @@ module.exports = function setup () {
     debug: isDevelopment
   }));
 
-  /**
-   * TODO: make a better uglifyjs middleware!!!!
-   */
+  app.use(require('zwe-uglifyjs-middleware')({
+    src: path.join(assetsDirectory, 'js'),
+    dest: path.join(publicDirectory, 'js'),
+    force: isDevelopment,
+    once: !isDevelopment,
+    debug: isDevelopment
+  }));
 
   app.use(app.router);
 
