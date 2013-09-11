@@ -13,3 +13,5 @@ isDevelopment = app.get('env') === 'development';
 
 application.setup();
 application.clusterize();
+
+require('./routes');
