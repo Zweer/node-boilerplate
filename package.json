@@ -5,7 +5,7 @@
   "author": "Niccolò Olivieri <flicofloc@gmail.com>",
   "description": "A simple boilerplate to create a node application from nothing",
   "bin": {
-    "nbp": "./bin/nbp"
+    "nbp": "./bin/nbp.js"
   },
   "scripts": {
     "start": "node ./app/server"
@@ -18,7 +18,7 @@
     "boilerplate"
   ],
   "dependencies": {
-
+    "optimist": "*"
   },
   "devDependencies": {
     "express": "*",
