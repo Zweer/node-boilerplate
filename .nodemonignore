@@ -1,0 +1,4 @@
+# Nodemon ignore-list file
+
+/assets/*
+/public/*
