@@ -3,6 +3,7 @@
     "clustered":    true,
     "cookieSecret": "put your cookie secret here!",
     "port":         3000,
+    "timeout":      5000,
 
     "directories": {
       "assets": "assets",
