@@ -4,11 +4,8 @@
   "version": "0.0.1",
   "author": "Niccolò Olivieri <flicofloc@gmail.com>",
   "description": "A simple boilerplate to create a node application from nothing",
-  "bin": {
-    "nbp": "./bin/nbp.js"
-  },
   "scripts": {
-    "start": "node ./app/server"
+    "start": "node ./server"
   },
   "repository": {
     "type": "git",
@@ -18,9 +15,6 @@
     "boilerplate"
   ],
   "dependencies": {
-    "optimist": "*"
-  },
-  "devDependencies": {
     "express": "*",
     "config": "*",
     "swig": "*",
