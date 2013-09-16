@@ -29,7 +29,7 @@
         <script src="js/plugins.js"></script>
         <!--<script src="js/main.js"></script>-->
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        {% if googleAnalytics %}
         <script>
             (function (b, o, i, l, e, r) {
                 b.GoogleAnalyticsObject = l;
@@ -42,8 +42,9 @@
                 e.src = '//www.google-analytics.com/analytics.js';
                 r.parentNode.insertBefore(e, r)
             }(window, document, 'script', 'ga'));
-            ga('create', 'UA-XXXXX-X');
+            ga('create', '{{ googleAnalytics }}');
             ga('send', 'pageview');
         </script>
+        {% endif %}
     </body>
 </html>
