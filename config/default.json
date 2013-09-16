@@ -1,9 +1,13 @@
 {
   "app": {
     "clustered":    true,
-    "cookieSecret": "put your cookie secret here!",
     "port":         3000,
     "timeout":      5000,
+
+    "cookie": {
+      "maxAge": 3600000,
+      "secret": "put your cookie secret here!"
+    },
 
     "directories": {
       "assets": "assets",
