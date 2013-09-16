@@ -20,7 +20,9 @@
     "swig": "*",
     "winston": "*",
     "less-middleware": "*",
-    "zwe-uglifyjs-middleware": "*"
+    "zwe-uglifyjs-middleware": "*",
+    "passport": "*",
+    "passport-local": "*"
   },
   "license": "MIT",
   "engines": {
