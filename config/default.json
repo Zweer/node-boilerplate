@@ -14,5 +14,9 @@
       "public": "public",
       "views":  "views"
     }
+  },
+
+  "locals": {
+    "title": "Node Boilerplate"
   }
 }
