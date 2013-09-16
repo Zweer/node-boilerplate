@@ -4,4 +4,23 @@
 
 {% block content %}
 <p>This is just an awesome page.</p>
+
+{% if passport.user %}
+Ciao {{ passport.user }} - <a href="/logout">Logout</a>
+{% else %}
+<form action="/login" method="post">
+    <input type="hidden" name="_csrf" value="{{ csrf }}">
+    <label>
+        <input type="text" name="username" placeholder="Username">
+    </label>
+
+    <label>
+        <input type="password" name="password" placeholder="Password">
+    </label>
+
+    <button type="submit">
+        Signup
+    </button>
+</form>
+{% endif %}
 {% endblock %}
